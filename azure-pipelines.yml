@@ -1,0 +1,25 @@
+# Node.js with Vue
+# Build a Node.js project that uses Vue.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+- task: AzureStaticWebApp@0
+  inputs:
+    azure_static_web_apps_api_token: '718a51cd291076abaa92a97537a3729509810e99a372d4d5e822306f44e277cd1-c819153c-8b35-40b4-846c-ae2fcb78036601087693'
