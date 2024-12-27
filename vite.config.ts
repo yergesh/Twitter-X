@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vuetify from '@vuetify/vite-plugin'
-import monacoEditorPlugin from "vite-plugin-monaco-editor"
 
 const path = require('path')
 
@@ -11,7 +10,6 @@ export default defineConfig({
     vuetify({
       autoImport: true,
     }),
-    monacoEditorPlugin()
   ],
   define: { 'process.env': {} },
   resolve: {
